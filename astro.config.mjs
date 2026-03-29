@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import swup from "@swup/astro";
 import sitemap from "@astrojs/sitemap";
 import cloudflarePages from "@astrojs/cloudflare";
+import netlify from "@astrojs/netlify";
 import edgeone from "@edgeone/astro";
 import vercel from "@astrojs/vercel";
 import decapCmsOauth from "decap-cms-oauth-astro";
@@ -38,11 +39,7 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 // Choose adapter depending on deployment environment
 const adapter = process.env.GITHUB_ACTIONS
     ? undefined
-    : (process.env.CF_PAGES
-        ? cloudflarePages()
-        : (process.env.EDGEONE
-            ? edgeone()
-            : vercel({ mode: "serverless" })));
+    : netlify();
 
 // Ref: https://astro.build/config
 export default defineConfig({
@@ -54,7 +51,7 @@ export default defineConfig({
         decapCmsOauth({
             configPath: "./.decap.yml", // Path to the Decap CMS configuration file
             decapCMSVersion: "3.9.0",
-            enable: false, // Set to true to use oauth (Requires .env configuration)
+            enable: true, // Set to true to use oauth (Requires .env configuration)
         }),
         swup({
             theme: false,
