@@ -246,9 +246,9 @@ profile:
             # 名字
             name: "Website"
             # 图标
-            icon: "fa6-brands:github"
+            icon: "fa6-solid:earth-americas"
             # 链接
-            url: "https://neofaithcollective.com"
+            url: "https://neofaithcollective.netlify.app/"
 
 # 公告配置
 announcement:
