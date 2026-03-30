@@ -1,0 +1,12 @@
+diff --git a/node_modules/decap-cms-oauth-astro/src/oauth/callback.ts b/node_modules/decap-cms-oauth-astro/src/oauth/callback.ts
+index e970a9c..c89f212 100644
+--- a/node_modules/decap-cms-oauth-astro/src/oauth/callback.ts
++++ b/node_modules/decap-cms-oauth-astro/src/oauth/callback.ts
+@@ -53,6 +53,6 @@ export const GET: APIRoute = async ({ url, redirect }) => {
+     });
+   } catch (err) {
+     console.log(err);
+-    return redirect("/?error=😡");
++    return redirect("/?error=auth_failed");
+   }
+ };
