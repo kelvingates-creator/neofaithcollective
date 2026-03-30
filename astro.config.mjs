@@ -43,7 +43,7 @@ const adapter = process.env.GITHUB_ACTIONS
 
 // Ref: https://astro.build/config
 export default defineConfig({
-    output: "server",
+    output: "hybrid",
     site: siteConfig.siteURL,
     base: "/",
     trailingSlash: "always",
