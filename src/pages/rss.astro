@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import { Icon } from "astro-icon/components";
 
 import { getSortedPosts } from "@utils/content";
@@ -11,6 +12,7 @@ import GridLayout from "@layouts/grid.astro";
 const posts = (await getSortedPosts()).filter((post) => !post.data.encrypted);
 const recentPosts = posts.slice(0, 6);
 ---
+export const prerender = true;
 
 <GridLayout title={i18n(I18nKey.rss)} description={i18n(I18nKey.rssDescription)}>
 
