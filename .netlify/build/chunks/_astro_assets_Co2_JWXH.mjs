@@ -1,5 +1,5 @@
 import { j as joinPaths, D as DEFAULT_OUTPUT_FORMAT, i as isRemotePath, a as VALID_SUPPORTED_FORMATS, b as DEFAULT_HASH_PROPS } from './consts_C1Ff685N.mjs';
-import { A as AstroError, E as ExpectedImage, p as LocalImageUsedWrongly, q as MissingImageDimension, s as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, t as UnsupportedImageConversion, v as toStyleString, w as NoImageMetadata, x as FailedToFetchRemoteImageDimensions, y as ExpectedImageOptions, z as ExpectedNotESMImage, B as InvalidImageService, b as createAstro, c as createComponent, C as ImageMissingAlt, m as maybeRenderHead, d as addAttribute, D as spreadAttributes, a as renderTemplate, G as ExperimentalFontsNotEnabled, H as FontFamilyNotFound, u as unescapeHTML } from './astro/server_D9U5-KZ2.mjs';
+import { A as AstroError, p as ExpectedImage, q as LocalImageUsedWrongly, s as MissingImageDimension, t as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, v as UnsupportedImageConversion, w as toStyleString, x as NoImageMetadata, y as FailedToFetchRemoteImageDimensions, z as ExpectedImageOptions, B as ExpectedNotESMImage, C as InvalidImageService, b as createAstro, c as createComponent, D as ImageMissingAlt, m as maybeRenderHead, d as addAttribute, G as spreadAttributes, a as renderTemplate, H as ExperimentalFontsNotEnabled, J as FontFamilyNotFound, u as unescapeHTML } from './astro/server_CZeXsbw0.mjs';
 import * as mime from 'mrmime';
 import 'clsx';
 import 'piccolore';
@@ -1461,7 +1461,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_D35q3otY.mjs'
+      './sharp_Dx5BiTkV.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;

@@ -3,10 +3,16 @@ import type { APIRoute } from "astro";
 
 const OAUTH_GITHUB_CLIENT_ID = import.meta.env.OAUTH_GITHUB_CLIENT_ID;
 
-export const GET: APIRoute = ({ redirect }) => {
+export const GET: APIRoute = ({ url }) => {
   const params = new URLSearchParams({
     client_id: OAUTH_GITHUB_CLIENT_ID,
     scope: "repo,user",
   });
-  return redirect(`https://github.com/login/oauth/authorize?${params.toString()}`);
+
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: `https://github.com/login/oauth/authorize?${params.toString()}`,
+    },
+  });
 };

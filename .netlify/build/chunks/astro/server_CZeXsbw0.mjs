@@ -133,6 +133,14 @@ const MissingSharp = {
   message: "Could not find Sharp. Please install Sharp (`sharp`) manually into your project or migrate to another image service.",
   hint: "See Sharp's installation instructions for more information: https://sharp.pixelplumbing.com/install. If you are not relying on `astro:assets` to optimize, transform, or process any images, you can configure a passthrough image service instead of installing Sharp. See https://docs.astro.build/en/reference/errors/missing-sharp for more information.\n\nSee https://docs.astro.build/en/guides/images/#default-image-service for more information on how to migrate to another image service."
 };
+const EnvInvalidVariables = {
+  name: "EnvInvalidVariables",
+  title: "Invalid Environment Variables",
+  message: (errors) => `The following environment variables defined in \`env.schema\` are invalid:
+
+${errors.map((err) => `- ${err}`).join("\n")}
+`
+};
 const ExperimentalFontsNotEnabled = {
   name: "ExperimentalFontsNotEnabled",
   title: "Experimental fonts are not enabled",
@@ -2096,4 +2104,4 @@ function defineStyleVars(defs) {
   return markHTMLString(output);
 }
 
-export { AstroError as A, InvalidImageService as B, ImageMissingAlt as C, spreadAttributes as D, ExpectedImage as E, Fragment as F, ExperimentalFontsNotEnabled as G, FontFamilyNotFound as H, IncompatibleDescriptorOptions as I, LiveContentConfigError as L, MissingSharp as M, NOOP_MIDDLEWARE_HEADER as N, RenderUndefinedEntryError as R, UnknownContentCollectionError as U, renderTemplate as a, createAstro as b, createComponent as c, addAttribute as d, renderSlot as e, renderScript as f, defineScriptVars as g, defineStyleVars as h, renderHead as i, decodeKey as j, AstroUserError as k, renderUniqueStylesheet as l, maybeRenderHead as m, renderScriptElement as n, createHeadAndContent as o, LocalImageUsedWrongly as p, MissingImageDimension as q, renderComponent as r, UnsupportedImageFormat as s, UnsupportedImageConversion as t, unescapeHTML as u, toStyleString as v, NoImageMetadata as w, FailedToFetchRemoteImageDimensions as x, ExpectedImageOptions as y, ExpectedNotESMImage as z };
+export { AstroError as A, ExpectedNotESMImage as B, InvalidImageService as C, ImageMissingAlt as D, EnvInvalidVariables as E, Fragment as F, spreadAttributes as G, ExperimentalFontsNotEnabled as H, IncompatibleDescriptorOptions as I, FontFamilyNotFound as J, LiveContentConfigError as L, MissingSharp as M, NOOP_MIDDLEWARE_HEADER as N, RenderUndefinedEntryError as R, UnknownContentCollectionError as U, renderTemplate as a, createAstro as b, createComponent as c, addAttribute as d, renderSlot as e, renderScript as f, defineScriptVars as g, defineStyleVars as h, renderHead as i, decodeKey as j, AstroUserError as k, renderUniqueStylesheet as l, maybeRenderHead as m, renderScriptElement as n, createHeadAndContent as o, ExpectedImage as p, LocalImageUsedWrongly as q, renderComponent as r, MissingImageDimension as s, UnsupportedImageFormat as t, unescapeHTML as u, UnsupportedImageConversion as v, toStyleString as w, NoImageMetadata as x, FailedToFetchRemoteImageDimensions as y, ExpectedImageOptions as z };

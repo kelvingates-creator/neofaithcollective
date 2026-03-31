@@ -1,4 +1,4 @@
-import { b as createAstro, c as createComponent, a as renderTemplate, d as addAttribute, i as renderHead } from '../chunks/astro/server_D9U5-KZ2.mjs';
+import { b as createAstro, c as createComponent, a as renderTemplate, d as addAttribute, i as renderHead } from '../chunks/astro/server_CZeXsbw0.mjs';
 import 'piccolore';
 import 'clsx';
 import { d as decapCMSVersion } from '../chunks/_virtual_decap-cms-config_DdbHNwLj.mjs';
