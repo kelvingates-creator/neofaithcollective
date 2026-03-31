@@ -9,10 +9,13 @@ export const GET: APIRoute = ({ url }) => {
     scope: "repo,user",
   });
 
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: `https://github.com/login/oauth/authorize?${params.toString()}`,
-    },
-  });
+  const redirectUrl = `https://github.com/login/oauth/authorize?${params.toString()}`;
+
+  return new Response(
+    `<!doctype html><html><head></head><body><script>window.location.replace("${redirectUrl}");</script></body></html>`,
+    { 
+      status: 200,
+      headers: { "Content-Type": "text/html" } 
+    }
+  );
 };
