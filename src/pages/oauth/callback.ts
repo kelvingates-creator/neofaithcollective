@@ -1,5 +1,7 @@
 import type { APIRoute } from "astro";
-import { OAUTH_GITHUB_CLIENT_ID, OAUTH_GITHUB_CLIENT_SECRET, OAUTH_GITHUB_REPO_ID } from "astro:env/server";
+const OAUTH_GITHUB_CLIENT_ID = import.meta.env.OAUTH_GITHUB_CLIENT_ID;
+const OAUTH_GITHUB_CLIENT_SECRET = import.meta.env.OAUTH_GITHUB_CLIENT_SECRET;
+const OAUTH_GITHUB_REPO_ID = import.meta.env.OAUTH_GITHUB_REPO_ID;
 
 export const prerender = false;
 
