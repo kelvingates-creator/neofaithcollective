@@ -5,7 +5,7 @@ backend:
     branch: main # 请替换为您的分支名称
     site_domain: neofaithcollective.netlify.app # 请替换为您的域名
     base_url: https://neofaithcollective.netlify.app/ # 请替换为您的 URL
-    auth_endpoint: oauth # OAuth 路由由集成提供
+    auth_endpoint: .netlify/functions/oauth # OAuth 路由由集成提供
 
 publish_mode: editorial_workflow
 
