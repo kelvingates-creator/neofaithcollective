@@ -1,1 +1,1 @@
-import './_astro_content_eggaFy3m.mjs';
+// Contents removed by Astro as it's used for prerendering only

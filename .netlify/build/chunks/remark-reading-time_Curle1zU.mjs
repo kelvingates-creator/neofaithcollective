@@ -1,1 +1,1 @@
-import 'reading-time';
+// Contents removed by Astro as it's used for prerendering only
