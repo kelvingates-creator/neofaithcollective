@@ -1,17 +1,11 @@
+export const prerender = true;
 import type { APIRoute } from "astro";
+
 const OAUTH_GITHUB_CLIENT_ID = import.meta.env.OAUTH_GITHUB_CLIENT_ID;
 const OAUTH_GITHUB_CLIENT_SECRET = import.meta.env.OAUTH_GITHUB_CLIENT_SECRET;
-const OAUTH_GITHUB_REPO_ID = import.meta.env.OAUTH_GITHUB_REPO_ID;
-
-export const prerender = false;
 
 export const GET: APIRoute = async ({ url, redirect }) => {
-  const data = {
-    code: url.searchParams.get("code"),
-    client_id: OAUTH_GITHUB_CLIENT_ID,
-    client_secret: OAUTH_GITHUB_CLIENT_SECRET,
-    ...(OAUTH_GITHUB_REPO_ID ? { repository_id: OAUTH_GITHUB_REPO_ID } : {}),
-  };
+  const code = url.searchParams.get("code");
 
   try {
     const response = await fetch("https://github.com/login/oauth/access_token", {
@@ -20,7 +14,11 @@ export const GET: APIRoute = async ({ url, redirect }) => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        client_id: OAUTH_GITHUB_CLIENT_ID,
+        client_secret: OAUTH_GITHUB_CLIENT_SECRET,
+        code,
+      }),
     });
 
     if (!response.ok) {
@@ -41,11 +39,9 @@ export const GET: APIRoute = async ({ url, redirect }) => {
             'authorization:${content.provider}:success:${JSON.stringify(content)}',
             message.origin
           );
-
           window.removeEventListener("message", receiveMessage, false);
         }
         window.addEventListener("message", receiveMessage, false);
-
         window.opener.postMessage("authorizing:${content.provider}", "*");
       </script>
     `;

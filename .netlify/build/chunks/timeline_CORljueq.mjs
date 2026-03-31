@@ -1,0 +1,54 @@
+import { c as createComponent, r as renderComponent, f as renderScript, a as renderTemplate, b as createAstro, m as maybeRenderHead, d as addAttribute } from './astro/server_D9U5-KZ2.mjs';
+import 'piccolore';
+import { L as LinkPresets, $ as $$Grid, c as $$IconifyLoader } from './grid_7BbutKON.mjs';
+import { L as LinkPreset } from './_astro_content_eggaFy3m.mjs';
+import { timelineData, getTimelineStats, getCurrentItems, getTotalWorkExperience, getTimelineByType } from './timeline_CbtpSmSP.mjs';
+import { i as i18n, I as I18nKey } from './content_Bhz2NelC.mjs';
+import $$TimelineItem from './timelineItem_gq1F3ASP.mjs';
+import $$BackwardButton from './backwardButton_Dwt3N36B.mjs';
+
+const $$Astro = createAstro("https://neofaithcollective.netlify.app/");
+const prerender = true;
+const $$Timeline = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Timeline;
+  const title = LinkPresets[LinkPreset.Timeline].name;
+  const subtitle = LinkPresets[LinkPreset.Timeline].description;
+  const allIcons = timelineData.map((item) => item.icon || getTypeIcon(item.type)).filter(Boolean);
+  const stats = getTimelineStats();
+  const currentItems = getCurrentItems();
+  const workExperience = getTotalWorkExperience();
+  const allTimelineItems = getTimelineByType();
+  const getTypeIcon = (type) => {
+    switch (type) {
+      case "education":
+        return "material-symbols:school";
+      case "work":
+        return "material-symbols:work";
+      case "project":
+        return "material-symbols:code";
+      case "achievement":
+        return "material-symbols:emoji-events";
+      default:
+        return "material-symbols:event";
+    }
+  };
+  return renderTemplate`${renderComponent($$result, "GridLayout", $$Grid, { "title": title, "description": subtitle }, { "default": ($$result2) => renderTemplate`  ${renderComponent($$result2, "IconifyLoader", $$IconifyLoader, { "preloadIcons": allIcons })} ${maybeRenderHead()}<div class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32"> <div class="card-base z-10 px-9 py-6 relative w-full"> ${renderComponent($$result2, "BackwardButton", $$BackwardButton, { "currentPath": Astro2.url.pathname })} <!-- 页面标题 --> <div class="flex flex-col items-start justify-center mb-8"> <h1 class="text-4xl font-bold text-black/90 dark:text-white/90 mb-2"> ${i18n(I18nKey.timeline)} </h1> <p class="text-lg text-black/60 dark:text-white/60"> ${i18n(I18nKey.timelineSubtitle)} </p> </div> <!-- 统计信息 --> <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8"> <div class="bg-linear-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg p-4"> <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">${stats.total}</div> <div class="text-sm text-blue-600/70 dark:text-blue-400/70">${i18n(I18nKey.timelineTotal)}</div> </div> <div class="bg-linear-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-lg p-4"> <div class="text-2xl font-bold text-green-600 dark:text-green-400">${stats.byType.work}</div> <div class="text-sm text-green-600/70 dark:text-green-400/70">${i18n(I18nKey.timelineWork)}</div> </div> <div class="bg-linear-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-lg p-4"> <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">${stats.byType.project}</div> <div class="text-sm text-purple-600/70 dark:text-purple-400/70">${i18n(I18nKey.timelineProjects)}</div> </div> <div class="bg-linear-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-lg p-4"> <div class="text-2xl font-bold text-orange-600 dark:text-orange-400"> ${workExperience.years}+
+</div> <div class="text-sm text-orange-600/70 dark:text-orange-400/70">${i18n(I18nKey.timelineExperience)}</div> </div> </div> <!-- 当前进行中的项目 --> ${currentItems.length > 0 && renderTemplate`<div class="mb-8"> <h2 class="text-2xl font-bold text-black/90 dark:text-white/90 mb-4"> ${i18n(I18nKey.timelineCurrent)} </h2> <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> ${currentItems.map((item) => renderTemplate`${renderComponent($$result2, "TimelineItem", $$TimelineItem, { "item": item, "layout": "card", "size": "medium" })}`)} </div> </div>`} <!-- 时间线 --> <div class="mb-8"> <h2 class="text-2xl font-bold text-black/90 dark:text-white/90 mb-6"> ${i18n(I18nKey.timelineHistory)} </h2> <div class="relative"> <!-- 时间线主轴 --> <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"></div> <div class="space-y-8"> ${allTimelineItems.map((item, index) => renderTemplate`${renderComponent($$result2, "TimelineItem", $$TimelineItem, { "item": item, "layout": "timeline", "showTimeline": true, "size": "medium" })}`)} </div> </div> </div> <!-- 类型统计 --> <div class="mt-12 pt-8 border-t border-black/10 dark:border-white/10"> <h2 class="text-2xl font-bold text-black/90 dark:text-white/90 mb-6"> ${i18n(I18nKey.timelineStatistics)} </h2> <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> <!-- 按类型分布 --> <div> <h3 class="text-lg font-semibold text-black/80 dark:text-white/80 mb-4"> ${i18n(I18nKey.timelineByType)} </h3> <div class="space-y-3"> ${Object.entries(stats.byType).map(([type, count]) => {
+    const percentage = Math.round(count / stats.total * 100);
+    return renderTemplate`<div class="flex items-center gap-3"> <div class="w-20 text-sm text-black/70 dark:text-white/70"> ${i18n(type === "education" ? I18nKey.timelineEducation : type === "work" ? I18nKey.timelineWork : type === "project" ? I18nKey.timelineProject : I18nKey.timelineAchievement)} </div> <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2"> <div${addAttribute(`h-2 rounded-full transition-all duration-600 ${type === "education" ? "bg-blue-500" : type === "work" ? "bg-green-500" : type === "project" ? "bg-purple-500" : "bg-orange-500"}`, "class")}${addAttribute(`width: ${percentage}%`, "style")}></div> </div> <div class="w-12 text-sm text-black/70 dark:text-white/70 text-right"> ${count} </div> </div>`;
+  })} </div> </div> <!-- 工作经验详情 --> <div> <h3 class="text-lg font-semibold text-black/80 dark:text-white/80 mb-4"> ${i18n(I18nKey.timelineWorkExperience)} </h3> <div class="space-y-3"> <div class="flex justify-between items-center"> <span class="text-black/70 dark:text-white/70">${i18n(I18nKey.timelineTotalExperience)}</span> <span class="font-semibold text-black/90 dark:text-white/90"> ${workExperience.years} ${i18n(I18nKey.timelineYears)} ${workExperience.months} ${i18n(I18nKey.timelineMonths)} </span> </div> <div class="flex justify-between items-center"> <span class="text-black/70 dark:text-white/70">${i18n(I18nKey.timelineWorkPositions)}</span> <span class="font-semibold text-black/90 dark:text-white/90">${stats.byType.work}</span> </div> <div class="flex justify-between items-center"> <span class="text-black/70 dark:text-white/70">${i18n(I18nKey.timelineCurrentRole)}</span> <span class="font-semibold text-black/90 dark:text-white/90"> ${currentItems.filter((item) => item.type === "work").length > 0 ? i18n(I18nKey.timelineEmployed) : i18n(I18nKey.timelineAvailable)} </span> </div> </div> </div> </div> </div> </div> </div> ` })} ${renderScript($$result, "/workspaces/neofaithcollective/src/pages/timeline.astro?astro&type=script&index=0&lang.ts")}`;
+}, "/workspaces/neofaithcollective/src/pages/timeline.astro", void 0);
+
+const $$file = "/workspaces/neofaithcollective/src/pages/timeline.astro";
+const $$url = "/timeline/";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+    __proto__: null,
+    default: $$Timeline,
+    file: $$file,
+    prerender,
+    url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+export { _page as _ };
