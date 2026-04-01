@@ -2,17 +2,17 @@
 title: "🚀 Faith Beyond Earth: What the Artemis Mission Means to Us"
 author: Kelvin Cooks
 published: 2026-03-31T21:56:00.000-05:00
-description: Faith and Space
+description: |
+  Faith and Space looking at mystery.
+  Now we’re planning to go back.
 cover: p8ayhqzqnton9hrpvw2ifh.jpg
 tags:
   - Moon
+  - Faith
+  - Space
 draft: false
 ---
-looking at mystery.
-
-Now we’re planning to go back.
-
-The Artemis Program isn’t just a scientific milestone—it’s a human moment. And if we’re being honest, it’s also a spiritual one.
+# The Artemis Program isn’t just a scientific milestone—it’s a human moment. And if we’re being honest, it’s also a spiritual one.
 
 At NeoFaith Collective, we believe faith doesn’t sit outside culture—it lives inside it. It lives in the stories we tell, the things we build, and the questions we ask when we look up at the sky. �
 
