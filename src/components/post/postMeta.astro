@@ -10,6 +10,7 @@ import I18nKey from "@i18n/i18nKey";
 
 
 export interface Props {
+    author?: string;
     published: Date;
     updated?: Date;
     category?: string | string[] | null;
@@ -23,6 +24,7 @@ export interface Props {
 }
 
 const {
+    author,
     published,
     updated,
     category,
@@ -45,6 +47,15 @@ const umamiBaseUrl = umamiConfig.baseUrl || "";
 ---
 
 <div class:list={["flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-x-4 gap-y-2", className]}>
+    <!-- author -->
+    {author && (
+        <div class="flex items-center">
+            <div class="meta-icon">
+                <Icon name="material-symbols:person-outline-rounded" class="text-xl"></Icon>
+            </div>
+            <span class="text-50 text-sm font-medium">{author}</span>
+        </div>
+    )}
     <!-- publish date -->
     <div class="flex items-center">
         <div class="meta-icon">
