@@ -63,7 +63,7 @@ export default defineConfig({
                 "#right-sidebar",
                 "#middle-sidebar",
             ],
-            cache: true,
+            cache: false,
             preload: true,
             accessibility: true,
             updateHead: true,
