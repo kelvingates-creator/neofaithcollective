@@ -1,5 +1,6 @@
 ---
 title: "🚀 Faith Beyond Earth: What the Artemis Mission Means to Us"
+author: Kelvin Cooks
 published: 2026-03-31T21:56:00.000-05:00
 description: Faith and Space
 cover: p8ayhqzqnton9hrpvw2ifh.jpg
