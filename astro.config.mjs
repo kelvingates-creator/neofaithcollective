@@ -3,7 +3,7 @@ import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-s
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import svelte, { vitePreprocess } from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
-import swup from "@swup/astro";
+// import swup from "@swup/astro";
 import sitemap from "@astrojs/sitemap";
 import cloudflarePages from "@astrojs/cloudflare";
 import netlify from "@astrojs/netlify";
@@ -15,8 +15,8 @@ import icon from "astro-icon";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
-import rehypeComponents from "rehype-components"; /* Render the custom directive content */
-import remarkDirective from "remark-directive"; /* Handle directives */
+import rehypeComponents from "rehype-components";
+import remarkDirective from "remark-directive";
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
@@ -35,13 +35,10 @@ import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 
-
-// Choose adapter depending on deployment environment
 const adapter = process.env.GITHUB_ACTIONS
     ? undefined
     : netlify();
 
-// Ref: https://astro.build/config
 export default defineConfig({
     output: "server",
     site: siteConfig.siteURL,
@@ -50,34 +47,32 @@ export default defineConfig({
     adapter: adapter,
     integrations: [
         decapCmsOauth({
-            configPath: "./.decap.yml", // Path to the Decap CMS configuration file
+            configPath: "./.decap.yml",
             decapCMSVersion: "3.9.0",
-            enable: true, // Set to true to use oauth (Requires .env configuration)
+            enable: true,
         }),
-        swup({
-            theme: false,
-            animationClass: "transition-swup-", // see https://swup.js.org/options/#animationselector
-            containers: [
-                "#swup-container",
-                "#left-sidebar",
-                "#right-sidebar",
-                "#middle-sidebar",
-            ],
-            cache: false,
-            preload: true,
-            accessibility: true,
-            updateHead: true,
-            updateBodyClass: false,
-            globalInstance: true,
-            // Scroll related configuration optimization
-            smoothScrolling: false, // Disable smooth scrolling to improve performance and avoid conflicts with anchor navigation
-            resolveUrl: (url) => url,
-            animateHistoryBrowsing: false,
-            skipPopStateHandling: (event) => {
-                // Skip anchor link handling, let the browser handle it natively
-                return event.state && event.state.url && event.state.url.includes("#");
-            },
-        }),
+        // swup({
+        //     theme: false,
+        //     animationClass: "transition-swup-",
+        //     containers: [
+        //         "#swup-container",
+        //         "#left-sidebar",
+        //         "#right-sidebar",
+        //         "#middle-sidebar",
+        //     ],
+        //     cache: false,
+        //     preload: true,
+        //     accessibility: true,
+        //     updateHead: true,
+        //     updateBodyClass: false,
+        //     globalInstance: true,
+        //     smoothScrolling: false,
+        //     resolveUrl: (url) => url,
+        //     animateHistoryBrowsing: false,
+        //     skipPopStateHandling: (event) => {
+        //         return event.state && event.state.url && event.state.url.includes("#");
+        //     },
+        // }),
         icon({
             include: {
                 "fa6-brands": ["*"],
@@ -202,7 +197,6 @@ export default defineConfig({
         build: {
             rollupOptions: {
                 onwarn(warning, warn) {
-                    // temporarily suppress this warning
                     if (
                         warning.message.includes("is dynamically imported by") &&
                         warning.message.includes("but also statically imported by")
