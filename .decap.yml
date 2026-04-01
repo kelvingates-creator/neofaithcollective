@@ -65,6 +65,8 @@ collections:
         fields:
             - # 标题
                 {label: "Title", name: "title", widget: "string"}
+            - # 作者
+                {label: "Author", name: "author", widget: "string", required: false}
             - # 发布日期
                 {label: "Published Date", name: "published", widget: "datetime"}
             - # 更新日期
@@ -80,8 +82,8 @@ collections:
             - # 草稿
                 {label: "Draft", name: "draft", widget: "boolean", default: false}
             - # 正文
-                {label: "Body", name: "body", widget: "markdown"}
-
+                {label: "Body", name: "body", widget: "markdown"}    
+                            
     - # 日记集合
         # 集合名称
         name: "diary"
