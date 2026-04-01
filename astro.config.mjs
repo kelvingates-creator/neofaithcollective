@@ -51,28 +51,28 @@ export default defineConfig({
             decapCMSVersion: "3.9.0",
             enable: true,
         }),
-        swup({
-            theme: false,
-            animationClass: "transition-swup-",
-            containers: [
-                "#swup-container",
-                "#left-sidebar",
-                "#right-sidebar",
-                "#middle-sidebar",
-            ],
-            cache: false,
-            preload: true,
-            accessibility: true,
-            updateHead: true,
-            updateBodyClass: false,
-            globalInstance: true,
-            smoothScrolling: false,
-            resolveUrl: (url) => url,
-            animateHistoryBrowsing: false,
-            skipPopStateHandling: (event) => {
-                return event.state && event.state.url && event.state.url.includes("#");
-            },
-        }),
+        // swup({
+        //     theme: false,
+        //     animationClass: "transition-swup-",
+        //     containers: [
+        //         "#swup-container",
+        //         "#left-sidebar",
+        //         "#right-sidebar",
+        //         "#middle-sidebar",
+        //     ],
+        //     cache: false,
+        //     preload: true,
+        //     accessibility: true,
+        //     updateHead: true,
+        //     updateBodyClass: false,
+        //     globalInstance: true,
+        //     smoothScrolling: false,
+        //     resolveUrl: (url) => url,
+        //     animateHistoryBrowsing: false,
+        //     skipPopStateHandling: (event) => {
+        //         return event.state && event.state.url && event.state.url.includes("#");
+        //     },
+        // }),
         icon({
             include: {
                 "fa6-brands": ["*"],
@@ -209,6 +209,6 @@ export default defineConfig({
         },
     },
     build: {
-        inlineStylesheets: "never",
+        inlineStylesheets: "always",
     },
 });
