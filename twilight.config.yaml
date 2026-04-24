@@ -1,7 +1,7 @@
 # 站点配置
 site:
     # 站点 URL（以斜杠结尾）
-    siteURL: "https://neofaithcollective.netlify.app/"
+    siteURL: "https://neofaithcollective.com/"
     # 站点标题
     title: "NeoFaith Collective"
     # 站点副标题
@@ -238,7 +238,7 @@ profile:
             # 图标
             icon: "fa6-solid:earth-americas"
             # 链接
-            url: "https://neofaithcollective.netlify.app/"
+            url: "https://neofaithcollective.com/"
 
 # 公告配置
 announcement:
